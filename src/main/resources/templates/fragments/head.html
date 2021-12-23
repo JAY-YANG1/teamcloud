@@ -4,7 +4,14 @@
         <title>TEAMCLOUD</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="resources/css/main.css" />
+        <link rel="stylesheet" th:href="@{css/main.css}" type="text/css"/>
+        <link rel="stylesheet" th:href="@{css/fontawesome-all.min.css}"  type="text/css"/>
+        <script th:src="@{js/breakpoints.min.js}" th:inline="javascript"></script>
+        <script th:src="@{js/browser.min.js}" th:inline="javascript"></script>
+        <script th:src="@{js/jquery.dropotron.min.js}" th:inline="javascript"></script>
+        <script th:src="@{js/jquery.min.js}" th:inline="javascript"></script>
+        <script th:src="@{js/main.js}" th:inline="javascript"></script>
+        <script th:src="@{js/util.js}" th:inline="javascript"></script>
     </head>
 </th:block>
 </html>
