@@ -16,4 +16,9 @@ public class MemberController {
     public String validateLogin() {
         return null;
     }
+
+    @PostMapping("/members/createMember")
+    public String createMember() {
+        return null;
+    }
 }
