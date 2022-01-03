@@ -19,6 +19,6 @@ public class MemberController {
 
     @PostMapping("/members/createMember")
     public String createMember() {
-        return null;
+        return "/members/createMember";
     }
 }
