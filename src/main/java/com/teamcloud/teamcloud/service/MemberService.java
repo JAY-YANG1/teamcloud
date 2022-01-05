@@ -18,12 +18,12 @@ public class MemberService {
     }
 
     // 회원가입
-    public Long join(TeamMember teamMember) {
+    public String join(TeamMember teamMember) {
         long start = System.currentTimeMillis();
         try {
             validateDuplicateMember(teamMember); // 중복 회원 검증
             memberRepository.save(teamMember);
-            return teamMember.getId();
+            return teamMember.getEmail();
         } finally {
             long finish = System.currentTimeMillis();
             long timeMs = finish - start;
