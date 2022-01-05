@@ -1,13 +1,13 @@
 package com.teamcloud.teamcloud.repository;
 
-import com.teamcloud.teamcloud.domain.Member;
+import com.teamcloud.teamcloud.domain.TeamMember;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface MemberRepository {
-    Member save(Member member);
-    Optional<Member> findById(Long id);
-    Optional<Member> findByName(String name);
-    List<Member> findAll();
+    TeamMember save(TeamMember teamMember);
+    Optional<TeamMember> findById(Long id);
+    Optional<TeamMember> findByEmail(String email);
+    List<TeamMember> findAll();
 }
