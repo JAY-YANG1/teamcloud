@@ -1,13 +1,15 @@
 package com.teamcloud.teamcloud.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class TeamBoard {
 
-    @Id
-    private String bdno;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long bdno;
 
     private String title;
     private String userid;
@@ -16,12 +18,12 @@ public class TeamBoard {
     private String views;
     private String likes;
 
-    public String getBdno() {
+    public Long getBdno() {
         return bdno;
     }
 
-    public void setBdno(String bno) {
-        this.bdno = bno;
+    public void setBdno(Long bdno) {
+        this.bdno = bdno;
     }
 
     public String getTitle() {
