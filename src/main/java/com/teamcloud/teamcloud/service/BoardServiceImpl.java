@@ -20,16 +20,15 @@ public class BoardServiceImpl implements BoardService {
         this.boardRepository = boardRepository;
     }
 
-
     @Override
     public Page<TeamBoard> findBoardList(Pageable pageable) {
         pageable = PageRequest.of(pageable.getPageNumber() <= 0 ? 0 : pageable.getPageNumber() - 1,
                 pageable.getPageSize());
-        return null; //boardRepository.findAll(pageable);
+        return boardRepository.findAll(pageable);
     }
 
     @Override
     public TeamBoard findBoardByBdno(Long bdno) {
-        return null;
+        return boardRepository.findByBdno(bdno).orElse(new TeamBoard());
     }
 }
