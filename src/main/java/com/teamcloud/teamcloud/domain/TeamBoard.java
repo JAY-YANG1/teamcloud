@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 public class TeamBoard {
@@ -13,7 +14,8 @@ public class TeamBoard {
 
     private String title;
     private String userid;
-    private String regdate;
+    private LocalDateTime regdate;
+    private LocalDateTime updatedDate;
     private String contents;
     private String views;
     private String likes;
@@ -42,11 +44,11 @@ public class TeamBoard {
         this.userid = userid;
     }
 
-    public String getRegdate() {
+    public LocalDateTime getRegdate() {
         return regdate;
     }
 
-    public void setRegdate(String regdate) {
+    public void setRegdate(LocalDateTime regdate) {
         this.regdate = regdate;
     }
 
@@ -72,5 +74,13 @@ public class TeamBoard {
 
     public void setLikes(String likes) {
         this.likes = likes;
+    }
+
+    public LocalDateTime getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(LocalDateTime updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }

@@ -31,7 +31,7 @@
                         <td>
                             <a th:href="'/board?idx='+${board.bdno}" th:text="${board.title}"></a>
                         </td>
-                        <td th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm:dd')}">
+                        <td th:text="${#temporals.format(board.regdate, 'yyyy-MM-dd HH:mm:dd')}">
                         </td>
                         <td th:text="${#temporals.format(board.updatedDate, 'yyyy-MM-dd HH:mm:dd')}">
                         </td>
