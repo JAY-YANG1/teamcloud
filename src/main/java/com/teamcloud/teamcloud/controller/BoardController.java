@@ -41,7 +41,7 @@ public class BoardController {
      * 게시글 상세 및 등록 폼 호출
      */
     @GetMapping({"", "/"})
-    public String board(@RequestParam(value = "idx", defaultValue = "0") Long bdno, Model model) {
+    public String board(@RequestParam(value = "bdno", defaultValue = "0") Long bdno, Model model) {
         model.addAttribute("board", boardService.findBoardByBdno(bdno));
         return "/board/form";
     }
