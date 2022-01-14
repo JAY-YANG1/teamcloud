@@ -21,7 +21,7 @@ dependencies {
     implementation 'junit:junit:4.13.1'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation("org.mariadb.jdbc:mariadb-java-client:2.1.2")
+	implementation("org.mariadb.jdbc:mariadb-java-client:2.4.1")
 }
 
 test {

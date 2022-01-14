@@ -50,10 +50,10 @@ public class BoardController {
      * 게시글 생성
      */
     @PostMapping
-    public ResponseEntity<?> postBoard(@RequestBody TeamBoard board) {
-        board.setRegdate(LocalDateTime.now());
-        board.setUpdatedDate(LocalDateTime.now());
-        boardRepository.save(board);
+    public ResponseEntity<?> postBoard(@RequestBody TeamBoard teamBoard) {
+        teamBoard.setRegdate(LocalDateTime.now());
+        teamBoard.setUpdatedDate(LocalDateTime.now());
+        boardRepository.save(teamBoard);
 
         return new ResponseEntity<>("{}", HttpStatus.CREATED);
     }
@@ -62,10 +62,10 @@ public class BoardController {
      * 게시글 수정
      */
     @PutMapping("/{bdno}")
-    public ResponseEntity<?> putBoard(@PathVariable("bdno") Long bdno, @RequestBody TeamBoard board) {
+    public ResponseEntity<?> putBoard(@PathVariable("bdno") Long bdno, @RequestBody TeamBoard teamBoard) {
         TeamBoard updateBoard = boardRepository.getOne(bdno);
-        updateBoard.setTitle(board.getTitle());
-        updateBoard.setContents(board.getContents());
+        updateBoard.setTitle(teamBoard.getTitle());
+        updateBoard.setContents(teamBoard.getContents());
         updateBoard.setUpdatedDate(LocalDateTime.now());
         boardRepository.save(updateBoard);
 

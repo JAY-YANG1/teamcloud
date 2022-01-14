@@ -36,13 +36,13 @@ public class TeamBoard {
     private String contents;
 
     @Column
-    private String views;
+    private int views;
 
     @Column
-    private String likes;
+    private int likes;
 
     @Builder
-    public TeamBoard(Long bdno, String title, String userid, LocalDateTime regdate, LocalDateTime updatedDate, String contents, String views, String likes) {
+    public TeamBoard(Long bdno, String title, String userid, LocalDateTime regdate, LocalDateTime updatedDate, String contents, int views, int likes) {
         this.bdno = bdno;
         this.title = title;
         this.userid = userid;

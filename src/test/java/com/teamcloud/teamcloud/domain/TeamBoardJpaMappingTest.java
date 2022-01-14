@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -16,32 +17,37 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class TeamBoardJpaMappingTest {
 
-    private final String title = "테스트";
-    private final String contents = "내용";
-    private final String views = "1";
-    private final String likes = "2";
+    //given
+    private final String title = "test";
+    private final String contents = "contents";
+    private final String userid = "email";
+    private final int views = 1;
+    private final int likes = 2;
 
     @Autowired
     private BoardRepository boardRepository;
 
-
+    //when
     @Before
     public void init() {
         boardRepository.save(TeamBoard.builder()
                 .title(title)
                 .contents(contents)
+                .userid(userid)
                 .regdate(LocalDateTime.now())
                 .updatedDate(LocalDateTime.now())
                 .views(views)
                 .likes(likes).build());
     }
 
+    //then
     @Test
     public void test() {
-        TeamBoard board = boardRepository.getOne((long) 1);
-        assertThat(board.getTitle(), is(title));
-        assertThat(board.getContents(), is(contents));
+        TeamBoard teamBoard = boardRepository.getOne((long) 1);
+        assertThat(teamBoard.getTitle(), is(title));
+        assertThat(teamBoard.getContents(), is(contents));
     }
 }

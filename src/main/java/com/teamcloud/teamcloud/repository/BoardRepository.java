@@ -12,7 +12,7 @@ public interface BoardRepository {
 
     Optional<TeamBoard> findByBdno(Long bdno);
 
-    TeamBoard save(TeamBoard board);
+    TeamBoard save(TeamBoard teamBoard);
 
     TeamBoard getOne(Long bdno);
 
