@@ -25,6 +25,8 @@ public class TeamcloudApplication {
                     boardRepository.save(TeamBoard.builder()
                             .title("게시글" + index)
                             .contents("내용" + index)
+                            .likes(1)
+                            .views(2)
                             .regdate(LocalDateTime.now())
                             .updatedDate(LocalDateTime.now()).build()));
         };
