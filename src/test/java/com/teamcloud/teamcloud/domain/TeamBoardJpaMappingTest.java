@@ -21,9 +21,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TeamBoardJpaMappingTest {
 
     //given
-    private final String title = "test";
-    private final String contents = "contents";
-    private final String userid = "email";
+    private final String title = "게시글1";
+    private final String contents = "내용1";
+    private final String userid = "아이디1";
     private final int views = 1;
     private final int likes = 2;
 
@@ -49,5 +49,6 @@ public class TeamBoardJpaMappingTest {
         TeamBoard teamBoard = boardRepository.getOne((long) 1);
         assertThat(teamBoard.getTitle(), is(title));
         assertThat(teamBoard.getContents(), is(contents));
+        assertThat(teamBoard.getUserid(), is(userid));
     }
 }

@@ -18,19 +18,20 @@ public class TeamcloudApplication {
         SpringApplication.run(TeamcloudApplication.class, args);
     }
 
-    @Bean
-    public CommandLineRunner runner(BoardRepository boardRepository) throws Exception {
-        return (args) -> {
-            IntStream.rangeClosed(1, 100).forEach(index ->
-                    boardRepository.save(TeamBoard.builder()
-                            .title("게시글" + index)
-                            .contents("내용" + index)
-                            .likes(1)
-                            .views(2)
-                            .regdate(LocalDateTime.now())
-                            .updatedDate(LocalDateTime.now()).build()));
-        };
-    }
+//    @Bean
+//    public CommandLineRunner runner(BoardRepository boardRepository) throws Exception {
+//        return (args) -> {
+//            IntStream.rangeClosed(1, 100).forEach(index ->
+//                    boardRepository.save(TeamBoard.builder()
+//                            .title("게시글" + index)
+//                            .contents("내용" + index)
+//                            .userid("아이디" + index)
+//                            .likes(1)
+//                            .views(2)
+//                            .regdate(LocalDateTime.now())
+//                            .updatedDate(LocalDateTime.now()).build()));
+//        };
+//    }
 
 }
 
