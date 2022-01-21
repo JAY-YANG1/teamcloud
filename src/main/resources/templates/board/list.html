@@ -29,7 +29,7 @@
                     <tr th:each="board : ${boardList}">
                         <td th:text="${board.bdno}"></td>
                         <td>
-                            <a th:href="'/board?idx='+${board.bdno}" th:text="${board.title}"></a>
+                            <a th:href="'/board?bdno='+${board.bdno}" th:text="${board.title}"></a>
                         </td>
                         <td th:text="${#temporals.format(board.regdate, 'yyyy-MM-dd HH:mm:dd')}">
                         </td>
