@@ -28,8 +28,8 @@ class BoardServiceImplTest {
                 .userid("testId")
                 .title("testTitle")
                 .contents("testContents")
-                .views(3)
-                .likes(3)
+                .views(7)
+                .likes(7)
                 .regdate(LocalDateTime.now())
                 .updatedDate(LocalDateTime.now()).build();
         //when
