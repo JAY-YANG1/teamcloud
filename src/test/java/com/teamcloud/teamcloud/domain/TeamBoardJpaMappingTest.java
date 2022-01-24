@@ -50,5 +50,7 @@ public class TeamBoardJpaMappingTest {
         assertThat(teamBoard.getTitle(), is(title));
         assertThat(teamBoard.getContents(), is(contents));
         assertThat(teamBoard.getUserid(), is(userid));
+        assertThat(teamBoard.getViews(), is(views));
+        assertThat(teamBoard.getLikes(), is(likes));
     }
 }
