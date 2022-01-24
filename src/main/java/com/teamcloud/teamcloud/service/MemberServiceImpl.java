@@ -5,7 +5,10 @@ import com.teamcloud.teamcloud.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+import java.time.temporal.TemporalAccessor;
+import java.util.Optional;
 
 @Service @Transactional
 public class MemberServiceImpl implements MemberService{
@@ -31,6 +34,19 @@ public class MemberServiceImpl implements MemberService{
             long timeMs = finish - start;
             System.out.println("join " + timeMs + "ms");
         }
+    }
+
+    @Override
+    public Boolean login(TeamMember teamMember, HttpSession sess) {
+        boolean isLogin = false;
+
+        Optional<TeamMember> teamMember2 = memberRepository.findByEmail(teamMember.getEmail());
+        if (teamMember2.equals(teamMember)) {
+            sess.setAttribute("UserId",teamMember.getEmail());
+            isLogin = true;
+        }
+
+        return isLogin;
     }
 
     private void validateDuplicateMember(TeamMember teamMember) {
