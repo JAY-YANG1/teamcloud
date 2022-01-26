@@ -5,8 +5,12 @@ import com.teamcloud.teamcloud.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockHttpSession;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.SessionScope;
 
+
+import javax.servlet.http.HttpSession;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,5 +52,28 @@ class MemberServiceImplTest {
         IllegalStateException e = assertThrows(IllegalStateException.class,
                 () -> memberService.join(member2));//예외가 발생해야 한다.
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
+    }
+
+    @Test
+    public void 로그인() throws Exception {
+
+        //Given
+        TeamMember member1 = new TeamMember();
+        member1.setEmail("testId");
+        member1.setPassword("testPwd");
+
+        TeamMember member2 = new TeamMember();
+        member2.setEmail("testId");
+        member2.setPassword("testPwd");
+
+        MockHttpSession sess = new MockHttpSession();
+
+        //When
+        memberService.login(member1, sess);
+
+        //Then
+        String result = (String)sess.getAttribute("UserId");
+        assertEquals(result, member1.getEmail());
+
     }
 }
