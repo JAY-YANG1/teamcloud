@@ -58,22 +58,20 @@ class MemberServiceImplTest {
     public void 로그인() throws Exception {
 
         //Given
-        TeamMember member1 = new TeamMember();
-        member1.setEmail("testId");
-        member1.setPassword("testPwd");
-
-        TeamMember member2 = new TeamMember();
-        member2.setEmail("testId");
-        member2.setPassword("testPwd");
+        TeamMember member = new TeamMember();
+        member.setEmail("testId");
+        member.setPassword("testPwd");
 
         MockHttpSession sess = new MockHttpSession();
 
+        memberRepository.save(member);
+
         //When
-        memberService.login(member1, sess);
+        memberService.login(member, sess);
 
         //Then
         String result = (String)sess.getAttribute("UserId");
-        assertEquals(result, member1.getEmail());
+        assertEquals(result, member.getEmail());
 
     }
 }
