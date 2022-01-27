@@ -41,7 +41,8 @@ public class MemberServiceImpl implements MemberService{
         boolean isLogin = false;
 
         Optional<TeamMember> teamMember2 = memberRepository.findByEmail(teamMember.getEmail());
-        if (teamMember2.get().equals(teamMember)) {
+        if (teamMember2.get().getEmail().equals(teamMember.getEmail())
+                && teamMember2.get().getPassword().equals(teamMember.getPassword())) {
             sess.setAttribute("UserId",teamMember.getEmail());
             isLogin = true;
         }
