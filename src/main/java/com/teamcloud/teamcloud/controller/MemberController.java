@@ -26,8 +26,6 @@ public class MemberController {
     }
 
 
-
-
     @GetMapping("/login")
     public String login() {
         return "/members/login";
@@ -55,8 +53,16 @@ public class MemberController {
         teamMember.setEmail(form.getEmail());
         teamMember.setPassword(form.getPassword());
 
-        memberService.login(teamMember, sess);
+        Boolean result = memberService.login(teamMember, sess);
 
-        return "redirect:/";
+        String link = "/members/login";
+
+        if (result == true) {
+            System.out.println("로그인 성공");
+            link = "redirect:/";
+        } else {
+            System.out.println("아이디 또는 비밀번호가 틀립니다");
+        }
+        return link;
     }
 }
