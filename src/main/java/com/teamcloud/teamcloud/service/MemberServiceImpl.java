@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
-import java.time.temporal.TemporalAccessor;
 import java.util.Optional;
 
 @Service @Transactional
