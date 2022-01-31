@@ -36,7 +36,7 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public Boolean login(TeamMember teamMember, HttpSession sess) {
+    public Boolean login(TeamMember teamMember) {
         boolean isLogin = false;
 
         Optional<TeamMember> teamMember2 = memberRepository.findByEmail(teamMember.getEmail());
@@ -44,7 +44,6 @@ public class MemberServiceImpl implements MemberService{
                 .equals(teamMember.getEmail())
                 && teamMember2.get().getPassword()
                 .equals(teamMember.getPassword())) {
-            sess.setAttribute("UserId",teamMember.getEmail());
             isLogin = true;
         }
 

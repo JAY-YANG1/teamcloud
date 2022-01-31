@@ -62,16 +62,14 @@ class MemberServiceImplTest {
         member.setEmail("testId");
         member.setPassword("testPwd");
 
-        MockHttpSession sess = new MockHttpSession();
 
         memberRepository.save(member);
 
         //When
-        memberService.login(member, sess);
+        Boolean result = memberService.login(member);
 
         //Then
-        String result = (String)sess.getAttribute("UserId");
-        assertEquals(result, member.getEmail());
+        assertEquals(result, true);
 
     }
 }

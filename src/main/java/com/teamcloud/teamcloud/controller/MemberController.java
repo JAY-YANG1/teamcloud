@@ -51,13 +51,15 @@ public class MemberController {
         teamMember.setEmail(form.getEmail());
         teamMember.setPassword(form.getPassword());
 
-        Boolean result = memberService.login(teamMember, sess);
+        Boolean result = memberService.login(teamMember);
 
         String link = "/members/login";
 
         if (result == true) {
             System.out.println("로그인 성공");
+            sess.setAttribute("UserId",teamMember.getEmail());
             link = "redirect:/";
+
         } else {
             System.out.println("아이디 또는 비밀번호가 틀립니다");
         }
